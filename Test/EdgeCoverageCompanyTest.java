@@ -3,6 +3,9 @@ import org.junit.Test;
 
 import java.util.Vector;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 public class EdgeCoverageCompanyTest {
     public ResourcePool rp;
     public Resource r1 = new Resource(1, "gojeh");
@@ -38,6 +41,7 @@ public class EdgeCoverageCompanyTest {
     {
         Company c = new Company(rp);
         c.hireEmployee(e1);
+        assertNotEquals(e1.getResource(), null);
     }
 
     @Test
@@ -45,6 +49,8 @@ public class EdgeCoverageCompanyTest {
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.fireEmployee(e1);
+        assertEquals(e1.getResource(), null);
+        // The company should get the resource from the employee; not to just remove the employee from its employees' list
     }
 
     @Test
@@ -53,6 +59,8 @@ public class EdgeCoverageCompanyTest {
         c.hireEmployee(e1);
         c.hireEmployee(e2);
         c.goBankrupt();
+        assertEquals(rp.getCurrentPoolCount(), 0);
+        // wrong code
     }
 
     // end of Edge Coverage
