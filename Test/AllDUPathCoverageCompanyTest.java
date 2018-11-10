@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,6 +35,7 @@ public class AllDUPathCoverageCompanyTest {
         c.hireEmployee(e1);
         c.hireEmployee(e2);
         c.goBankrupt();
+        Assert.assertEquals(0, rp.getCurrentPoolCount());
     }
 
     // end of All DU Path Coverage

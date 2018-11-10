@@ -1,3 +1,5 @@
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,10 +48,11 @@ public class PrimePathCoverageCompanyTest {
 
     @Test
     public void goBankrupt_MoreThanOneEmployeeCoverage(){   // 3 4 2 3
+        rp = new ResourcePool(resources, 10);
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.hireEmployee(e2);
-        c.goBankrupt();
+        Assert.assertThat(c.goBankrupt(), Matchers.lessThan(0));
     }
 
     @Test
@@ -58,7 +61,7 @@ public class PrimePathCoverageCompanyTest {
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.hireEmployee(e2);
-        c.goBankrupt();
+        Assert.assertThat(c.goBankrupt(), Matchers.lessThan(0));
     }
 
     @Test
@@ -69,7 +72,7 @@ public class PrimePathCoverageCompanyTest {
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.hireEmployee(e2);
-        c.goBankrupt();
+        Assert.assertThat(c.goBankrupt(), Matchers.lessThan(0));
     }
 
     @Test
@@ -81,7 +84,7 @@ public class PrimePathCoverageCompanyTest {
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.hireEmployee(e2);
-        c.goBankrupt();
+        Assert.assertThat(c.goBankrupt(), Matchers.lessThan(0));
     }
 
     // end of Prime Path Coverage
