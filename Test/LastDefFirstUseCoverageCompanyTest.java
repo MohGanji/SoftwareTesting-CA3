@@ -1,10 +1,11 @@
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Vector;
 
-public class AllDUPathCoverageCompanyTest {
+public class LastDefFirstUseCoverageCompanyTest {
     public ResourcePool rp;
     public Resource r1 = new Resource(1, "gojeh");
     public Resource r2 = new Resource(10, "laptop");
@@ -40,13 +41,13 @@ public class AllDUPathCoverageCompanyTest {
     // All DU Path Coverage
 
     @Test
-    public void AllDUPathCoverage()   // 1 2 5
+    public void LastDefFirstUseCoverage()   // 1 2 5
     {
         rp = new ResourcePool(resources, 10);
         Company c = new Company(rp);
         c.hireEmployee(e1);
         c.hireEmployee(e2);
-        c.goBankrupt();
+        Assert.assertThat(c.goBankrupt(), Matchers.lessThan(0));
         Assert.assertEquals(0, rp.getCurrentPoolCount());
     }
 

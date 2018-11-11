@@ -14,16 +14,29 @@ public class PrimePathCoverageCompanyTest {
     public Employee e2 = new Employee("gholam");
     public Vector<Resource> resources = new Vector<>();
 
-    @Before
-    public void initialize(){
+    private void initEmployees(){
+        e1 = new Employee("gholi");
+        e2 = new Employee("gholam");
+    }
+
+    private void initResources() {
         r1 = new Resource(1, "gojeh");
         r2 = new Resource(10, "laptop");
         r3 = new Resource(100, "car");
-        e1 = new Employee("gholi");
-        e2 = new Employee("gholam");
+
+    }
+
+    private void fillResourcePool() {
         resources.add(r1);
         resources.add(r2);
         resources.add(r3);
+    }
+
+    @Before
+    public void initialize(){
+        initResources();
+        initEmployees();
+        fillResourcePool();
     }
 
     // Prime Path Coverage
